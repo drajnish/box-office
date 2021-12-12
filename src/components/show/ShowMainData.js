@@ -2,35 +2,39 @@ import React from 'react';
 
 import IMG_PLACEHOLDER from '../../images/not-found.png';
 import { Star } from '../styled';
+import { Headline, MainDataWrapper, TagList } from './ShowMainData.styled';
 
 const ShowMainData = ({ name, rating, summary, tags, image }) => {
   return (
-    <div>
+    <MainDataWrapper>
       <img src={image ? image.original : IMG_PLACEHOLDER} alt="show-cover" />
-      <div>
-        <div>
+      <div className="text-side">
+        <Headline>
           <h1>{name}</h1>
           <div>
             <Star />
             {/* star is style component. it shows a star */}
             <span>{rating.average || 'N/A'}</span>
           </div>
-        </div>
+        </Headline>
         {/* <div>{summary}</div> */}
         {/* if we use the above tag then it will show html tags as text
         so, we need to use dangerouslySetInnerHTML property */}
-        <div dangerouslySetInnerHTML={{ __html: summary }} />
+        <div
+          className="summary"
+          dangerouslySetInnerHTML={{ __html: summary }}
+        />
 
         <div>
           Tags:{' '}
-          <div>
+          <TagList>
             {tags.map((tag, i) => (
               <span key={i}>{tag}</span>
             ))}
-          </div>
+          </TagList>
         </div>
       </div>
-    </div>
+    </MainDataWrapper>
   );
 };
 
