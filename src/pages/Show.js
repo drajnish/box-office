@@ -48,7 +48,7 @@ const Show = () => {
       })
       .catch(err => {
         if (isMounted) {
-          dispatch({ type: 'FETCH_FAILURE', error: err.message });
+          dispatch({ type: 'FETCH_FAILED', error: err.message });
           //   setError(err.message);
           //   setIsLoading(false);
         }
