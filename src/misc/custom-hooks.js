@@ -1,5 +1,5 @@
 import { useReducer, useEffect, useState } from 'react';
-import Show from '../pages/Show';
+// import Show from '../pages/Show';
 import { apiGet } from './config';
 
 function showsReducer(prevState, action) {
